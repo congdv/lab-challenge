@@ -1,14 +1,14 @@
-require('dotenv').config();
+require("dotenv").config();
 
-let PORT = process.env.PORT;
+let PORT = process.env.PORT || 3001;
 switch (process.env.NODE_ENV) {
-    case 'production':
+    case "production":
         MONGODB_URI = process.env.MONGODB_URI_PROD;
         break;
-    case 'development':
+    case "development":
         MONGODB_URI = process.env.MONGODB_URI_DEV;
         break;
-    case 'test':
+    case "test":
         MONGODB_URI = process.env.MONGODB_URI_TEST;
         break;
     default:

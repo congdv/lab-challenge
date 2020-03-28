@@ -35,13 +35,10 @@ app.get("/api/getUsername", (req, res) => {
 
 app.use("/api", router);
 
-//For production mode
-if (process.env.NODE_ENV == "production") {
-    // Serve any other file as the distribution index.html
-    app.get("*", (_req, res) => {
-        res.sendFile(path.join(__dirname, "../../dist/index.html"));
-    });
-}
+// Serve any other file as the distribution index.html
+app.get("*", (_req, res) => {
+    res.sendFile(path.join(__dirname, "../../dist/index.html"));
+});
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);

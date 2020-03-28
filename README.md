@@ -13,3 +13,5 @@ Please create your own environment that following .env.sample.
 ```
 cp .env.sample .env
 ```
+
+I wrote my thought about this project at [here](./Cong_Dao_Fullstack_Developer_CaseStudy.md)

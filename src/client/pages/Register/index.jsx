@@ -60,7 +60,7 @@ const Register = ({ auth, register }) => {
                     )}
                     <form onSubmit={handleOnSubmit}>
                         <div className="form-group">
-                            <label htmlFor="username">Name</label>
+                            <label htmlFor="username">Username</label>
                             <input
                                 type={username.type}
                                 id="username"

@@ -1,6 +1,7 @@
 const Labs = require("../models/labs");
 const xlxsParser = require("xlsx");
 const path = require("path");
+const jwt = require("jsonwebtoken");
 
 const readLabsFromFile = () => {
     const filePath = path.resolve(__dirname, "../assets/labs-data.xlsx");
@@ -10,7 +11,18 @@ const readLabsFromFile = () => {
     return labs;
 };
 
-const getAllLabs = async (_req, res, next) => {
+const getAllLabs = async (req, res, next) => {
+    try {
+        //Check authentication
+        const decodedToken = jwt.verify(req.token, process.env.SECRET);
+        if (!req.token || !decodedToken.id) {
+            return res.status(401).json({ error: "token missing or invalid" });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(401).json({ error: "token missing or invalid" });
+    }
+
     //Check database have labs data
     let labs = await Labs.find({});
     if (labs.length == 0) {

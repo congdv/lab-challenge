@@ -6,4 +6,5 @@ yarn.lock
 .env
 .now
 
-fullstack-challenge.mp4
+*.mp4
+*.pdf

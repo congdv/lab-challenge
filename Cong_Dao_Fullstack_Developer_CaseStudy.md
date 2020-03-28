@@ -14,10 +14,12 @@ Laravel development
 
 Create a web app using the Laravel framework (PHP) to do the following:
 
-    Allow a user to login and explore the labs and click to open up a google maps
+```
+Allow a user to login and explore the labs and click to open up a google maps
 
-    From admin, drop a pin for all the locations in the following data sheet: https://drive.google.com/file/d/1XjqJ7kp2AcMQjWaf_exDTTx-1qU4ctGp/view?usp=sharing
-    Feel free to add other features that might be useful (such as search)
+From admin, drop a pin for all the locations in the following data sheet: https://drive.google.com/file/d/1XjqJ7kp2AcMQjWaf_exDTTx-1qU4ctGp/view?usp=sharing
+Feel free to add other features that might be useful (such as search)
+```
 
 The purpose of this web app is allow students to easily find labs.
 

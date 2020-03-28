@@ -1,4 +1,4 @@
-import ReactMapGL, { NavigationControl } from 'react-map-gl';
+import ReactMapGL, { NavigationControl, GeolocateControl } from 'react-map-gl';
 import React, { useState, useEffect } from 'react';
 import MapStyled from './Styles';
 import labAction from '../../actions/lab.action';
@@ -38,9 +38,15 @@ const Map = ({ labs, map, getAll }) => {
                     <LabPopup key={lab.id} lab={lab} isShow={true} />
                 ))}
                 <Markers />
-                <div style={{ position: 'absolute', right: 0 }}>
+                <div style={{ position: 'absolute', right: 0, top: 30 }}>
                     <NavigationControl />
                 </div>
+
+                <GeolocateControl
+                    positionOptions={{ enableHighAccuracy: true }}
+                    trackUserLocation={true}
+                    label="Your location"
+                />
             </ReactMapGL>
         </MapStyled>
     );

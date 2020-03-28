@@ -11,6 +11,7 @@ const login = (username, password) => {
             dispatch({
                 type: userConstants.LOGIN_SUCCESS,
                 message: 'Successfully login',
+                data: { username: user.username, name: user.name },
             });
             history.push('/');
         } catch (error) {
@@ -23,6 +24,27 @@ const login = (username, password) => {
     };
 };
 
+const register = (username, name, password) => {
+    return async dispatch => {
+        dispatch({ type: userConstants.REGISTER_REQUEST });
+        try {
+            await userService.register(username, name, password);
+            dispatch({
+                type: userConstants.REGISTER_SUCCESS,
+                message: 'Successfully register',
+            });
+            history.push('/login');
+        } catch (error) {
+            dispatch({
+                type: userConstants.REGISTER_FAILURE,
+                error: error,
+            });
+            console.log(error);
+        }
+    };
+};
+
 export default {
     login,
+    register,
 };

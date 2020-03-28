@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -47,6 +48,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             favicon: './public/favicon.ico',
+        }),
+        new webpack.DefinePlugin({
+            'process.env.MAPBOX_TOKEN': JSON.stringify(
+                process.env.MAPBOX_TOKEN || 'NONE'
+            ),
         }),
     ],
 };

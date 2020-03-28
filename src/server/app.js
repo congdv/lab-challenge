@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const middleware = require("./utils/middleware");
 const mongoose = require("mongoose");
+const path = require("path");
 
 //Router
 const router = require("./router");
@@ -22,7 +23,7 @@ mongoose
     });
 
 app.use(cors());
-app.use(express.static("assets"));
+app.use(express.static(path.join(__dirname, "../../dist/")));
 app.use(bodyParser.json());
 app.use(middleware.requestLogger);
 app.use(middleware.tokenExtractor);
@@ -33,6 +34,14 @@ app.get("/api/getUsername", (req, res) => {
 });
 
 app.use("/api", router);
+
+//For production mode
+if (process.env.NODE_ENV == "production") {
+    // Serve any other file as the distribution index.html
+    app.get("*", (_req, res) => {
+        res.sendFile(path.join(__dirname, "../../dist/index.html"));
+    });
+}
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);

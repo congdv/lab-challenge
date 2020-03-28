@@ -41,7 +41,7 @@ const login = async (req, res, next) => {
 
 const register = async (req, res, next) => {
     try {
-        const { userName: username, name, password } = req.body;
+        const { username, name, password } = req.body;
 
         if (!(username && name && password)) {
             throw {

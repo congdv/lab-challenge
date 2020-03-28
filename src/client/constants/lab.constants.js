@@ -1,0 +1,5 @@
+export const labConstants = {
+    GET_ALL_REQUEST: 'LAB_GET_ALL_REQUEST',
+    GET_ALL_SUCCESS: 'LAB_GET_ALL_SUCCESS',
+    GET_ALL_FAILURE: 'LAB_GET_ALL_FAILURE',
+};

@@ -6,6 +6,7 @@
     "scripts": {
         "build": "webpack --mode production",
         "start": "npm run build && cross-env NODE_ENV=production node src/server/index.js",
+        "deploy": "npm run build && NODE_ENV=production node src/server/index.js",
         "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
         "server": "cross-env NODE_ENV=development nodemon src/server/index.js",
         "dev": " concurrently \"npm run server\" \"npm run client\""

@@ -5,3 +5,11 @@ The website will read all the locations of the labs from this [link](https://dri
 From the locations, the site will use the map to display all locations. It allows user can search all lab by name
 
 It was built with Express, React, and Webpack.
+
+## Notes
+
+Please create your own environment that following .env.sample.
+
+```
+cp .env.sample .env
+```

@@ -14,7 +14,7 @@
     "author": "Cong Dao",
     "license": "ISC",
     "dependencies": {
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "babel-polyfill": "^6.26.0",
         "bcrypt": "^4.0.1",
         "cors": "^2.8.5",
